@@ -1,0 +1,4 @@
+name: PortalRush
+version: '${project.version}'
+main: com.bloobon.portalrush.portalrush.PortalRush
+api-version: 1.20
