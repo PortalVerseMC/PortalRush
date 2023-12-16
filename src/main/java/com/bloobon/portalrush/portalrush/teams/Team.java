@@ -1,5 +1,6 @@
 package com.bloobon.portalrush.portalrush.teams;
 
+import com.bloobon.portalrush.portalrush.PortalRush;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.GameMode;
@@ -13,15 +14,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Team {
 
+    private static final int maxPlayers = 1;
     @Getter
     private final @NotNull TeamColor color;
+    @Getter
     private final List<Player> players = new ArrayList<>();
-    private final int maxPlayers;
     private boolean aliveCrystal;
-
-    public List<Player> getPlayers() {
-        return players;
-    }
 
     public void addPlayer(@NotNull Player player){
         players.add(player);

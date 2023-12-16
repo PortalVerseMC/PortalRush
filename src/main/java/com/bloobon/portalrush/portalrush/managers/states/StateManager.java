@@ -1,14 +1,19 @@
 package com.bloobon.portalrush.portalrush.managers.states;
 
+import com.bloobon.portalrush.portalrush.gamestates.GameState;
 import com.bloobon.portalrush.portalrush.managers.game.GameManager;
-import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
-@RequiredArgsConstructor
 public class StateManager {
 
     private final GameManager gameManager;
 
-    public void changeState(){
+    public StateManager(@NotNull GameManager gameManager){
+        this.gameManager = gameManager;
+    }
 
+    public void changeState(@NotNull GameState state){
+        gameManager.setState(state);
+        state.onSet();
     }
 }

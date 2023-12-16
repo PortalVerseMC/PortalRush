@@ -6,7 +6,11 @@ public enum TeamColor {
     RED,
     BLUE,
     GREEN,
-    YELLOW;
+    YELLOW,
+    ORANGE,
+    GRAY,
+    WHITE,
+    BROWN;
 
     public String getName(){
         String c = this.toString();

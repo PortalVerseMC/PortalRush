@@ -1,0 +1,27 @@
+global-messages:
+  join-message:
+  leave-message:
+  countdown-start:
+  countdown-stopped:
+  live-started:
+  game-finished:
+  player-killed:
+  final-player-killed:
+  crystal-broke:
+
+team-messages:
+  team-upgrade:
+  crystal-broke:
+  broke-another-crystal:
+  unlocked-teleporter:
+  teammate-killed:
+  final-teammate-killed:
+
+player-messages:
+  died:
+  final-died:
+  broke-another-crystal:
+  team-upgrade:
+  unlocked-teleporter:
+  player-killed:
+  final-player-killed:

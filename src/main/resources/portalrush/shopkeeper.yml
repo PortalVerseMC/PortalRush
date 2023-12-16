@@ -1,0 +1,21 @@
+display-name: '<red>Shopkeeper'
+inventory-name: '<gold>Shopkeeper'
+inventory-size: 27
+items:
+  wooden-sword:
+    display-name: '<brown>Wooden Sword'
+    lore:
+      - '<yellow>Starter sword!'
+    material: WOODEN_SWORD
+    cost: 10
+    mineral: IRON_INGOT
+    slot: 0
+  stone-sword:
+    display-name: '<gray>Stone Sword'
+    lore:
+      - '<yellow>Keep the enemies away!'
+    material: STONE_SWORD
+    cost: 32
+    mineral: IRON_INGOT
+    slot: 1
+

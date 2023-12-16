@@ -9,7 +9,7 @@ import org.bukkit.entity.Entity;
 
 @RequiredArgsConstructor
 @Getter
-public class Engineer implements NPC {
+public class Engineer implements NPC,IslandSpecificNPC {
 
     private final Location location;
     private final Entity entity;
