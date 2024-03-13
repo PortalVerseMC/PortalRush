@@ -24,6 +24,7 @@ public class PortalRushCommand implements CommandExecutor {
         commands.add(new SetupIslandCommand(portalRush));
         Objects.requireNonNull(portalRush.getCommand("admin")).setExecutor(this);
     }
+
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
 

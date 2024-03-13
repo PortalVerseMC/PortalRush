@@ -69,7 +69,6 @@ public class IslandBuilder {
     }
 
     public Island build() {
-
         Objects.requireNonNull(ironGenerator, "Iron Generator must be set");
         Objects.requireNonNull(goldGenerator, "Gold Generator must be set");
         Objects.requireNonNull(engineer, "Engineer must be set");

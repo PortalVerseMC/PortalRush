@@ -7,7 +7,7 @@ import java.util.Map;
 public final class GeneratorUpgradeCache implements UpgradeCache<GeneratorType, Integer> {
 
 
-    private Map<@NonNull GeneratorType, Map<@NonNull Integer, @NonNull Integer>> generatorTypeMap;
+    private @NonNull Map<@NonNull GeneratorType, Map<@NonNull Integer, @NonNull Integer>> generatorTypeMap;
 
 
     private GeneratorUpgradeCache() {}

@@ -3,9 +3,9 @@ package com.bloobon.portalrush.portalrush.tasks;
 import com.bloobon.portalrush.portalrush.PortalRush;
 import com.bloobon.portalrush.portalrush.generator.AbstractGenerator;
 import lombok.RequiredArgsConstructor;
-import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
+
 @RequiredArgsConstructor
 public class GeneratorTimer extends BukkitRunnable {
 
