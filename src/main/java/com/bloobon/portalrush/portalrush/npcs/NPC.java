@@ -1,11 +1,11 @@
 package com.bloobon.portalrush.portalrush.npcs;
 
+import org.bukkit.Location;
 import org.bukkit.entity.Entity;
-
-import javax.xml.stream.Location;
+import org.bukkit.entity.Player;
 
 public interface NPC {
 
     Location getLocation();
-    Entity getEntity();
+    Player getEntity();
 }

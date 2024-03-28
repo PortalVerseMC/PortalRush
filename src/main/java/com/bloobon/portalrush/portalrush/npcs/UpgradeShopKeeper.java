@@ -2,14 +2,24 @@ package com.bloobon.portalrush.portalrush.npcs;
 
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Location;
-import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
-@RequiredArgsConstructor
 @Getter
-public class UpgradeShopKeeper implements NPC {
+public class UpgradeShopKeeper extends NPCVillager {
+    public UpgradeShopKeeper(Player entity, Location location, Component name) {
+        super(entity, location, Component.text("Upgrade Shop").color(NamedTextColor.GREEN));
+    }
 
-    private final Location location;
-    private final Entity entity;
+    @Override
+    public void handleLeftClick(Player player) {
+
+    }
+
+    @Override
+    public void handleRightClick(Player player) {
+
+    }
 }

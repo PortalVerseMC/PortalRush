@@ -1,14 +1,43 @@
 package com.bloobon.portalrush.portalrush.npcs;
 
+import com.github.retrooper.packetevents.PacketEvents;
+import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerEntityHeadLook;
+import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerEntityRotation;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Location;
-import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
 
-@RequiredArgsConstructor
 @Getter
-public class ItemShopKeeper implements NPC {
+public class ItemShopKeeper extends NPCVillager {
+    public ItemShopKeeper(Player entity, Location location) {
+        super(entity, location, Component.text("Shop").color(NamedTextColor.GREEN));
+    }
 
-    private final Location location;
-    private final Entity entity;
+    @Override
+    public void handleLeftClick(Player player) {
+        //TODO Test code
+        player.sendMessage("You clicked on an item shop keeper!");
+    }
+
+    @Override
+    public void handleRightClick(Player player) {
+        //TODO Test code
+        //Rotate the NPC in the player's direction.
+        Vector direction = player.getEyeLocation().clone().subtract(getEyeLocation()).toVector();
+
+        getLocation().setDirection(direction);
+
+        WrapperPlayServerEntityRotation rot = new WrapperPlayServerEntityRotation(getEntityId(),
+                getLocation().getYaw(), getLocation().getPitch(), true);
+
+        WrapperPlayServerEntityHeadLook head = new WrapperPlayServerEntityHeadLook(getEntityId(), getLocation().getYaw());
+        PacketEvents.getAPI().getPlayerManager().sendPacket(player, head);
+        PacketEvents.getAPI().getPlayerManager().sendPacket(player, rot);
+
+        player.sendMessage("TPd the villager towards you...");
+
+    }
 }
