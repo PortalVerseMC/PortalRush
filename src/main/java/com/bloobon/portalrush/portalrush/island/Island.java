@@ -8,9 +8,10 @@ import com.bloobon.portalrush.portalrush.generator.IslandGenerator;
 import com.bloobon.portalrush.portalrush.teams.Team;
 import com.bloobon.portalrush.portalrush.teleporter.Teleporter;
 import lombok.NonNull;
+import org.bukkit.Location;
 
-public record Island(@NonNull Team team,@NonNull IslandGenerator ironGenerator,@NonNull IslandGenerator goldGenerator,@NonNull Engineer engineer,@NonNull
-                     ItemShopKeeper itemShopKeeper,@NonNull UpgradeShopKeeper upgradeShopKeeper,@NonNull Teleporter smallTeleporter,@NonNull
-                     Teleporter bigTeleporter,@NonNull Crystal crystal) {
+public record Island(@NonNull Team team, @NonNull IslandGenerator ironGenerator, @NonNull IslandGenerator goldGenerator, @NonNull Engineer engineer, @NonNull
+                     ItemShopKeeper itemShopKeeper, @NonNull UpgradeShopKeeper upgradeShopKeeper, @NonNull Teleporter teleporter, @NonNull Crystal crystal, @NonNull
+                     Location playerSpawn) {
 
 }

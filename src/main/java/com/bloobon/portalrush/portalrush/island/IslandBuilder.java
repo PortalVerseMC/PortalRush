@@ -8,6 +8,7 @@ import com.bloobon.portalrush.portalrush.generator.IslandGenerator;
 import com.bloobon.portalrush.portalrush.teams.Team;
 import com.bloobon.portalrush.portalrush.teleporter.Teleporter;
 import lombok.Getter;
+import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -20,8 +21,8 @@ public class IslandBuilder {
     private Engineer engineer;
     private ItemShopKeeper itemShopKeeper;
     private UpgradeShopKeeper upgradeShopKeeper;
-    private Teleporter smallTeleporter;
-    private Teleporter bigTeleporter;
+    private Teleporter teleporter;
+    private Location playerSpawn;
     private Crystal crystal;
 
     public IslandBuilder(@NotNull Team team) {
@@ -43,6 +44,11 @@ public class IslandBuilder {
         return this;
     }
 
+    public IslandBuilder withPlayerSpawn(@NotNull Location playerSpawn){
+        this.playerSpawn = playerSpawn;
+        return this;
+    }
+
     public IslandBuilder withItemShopKeeper(@NotNull ItemShopKeeper itemShopKeeper) {
         this.itemShopKeeper = itemShopKeeper;
         return this;
@@ -53,13 +59,8 @@ public class IslandBuilder {
         return this;
     }
 
-    public IslandBuilder withSmallTeleporter(@NotNull Teleporter smallTeleporter) {
-        this.smallTeleporter = smallTeleporter;
-        return this;
-    }
-
-    public IslandBuilder withBigTeleporter(@NotNull Teleporter bigTeleporter) {
-        this.bigTeleporter = bigTeleporter;
+    public IslandBuilder withTeleporter(@NotNull Teleporter Teleporter) {
+        this.teleporter = teleporter;
         return this;
     }
 
@@ -69,16 +70,17 @@ public class IslandBuilder {
     }
 
     public Island build() {
+
         Objects.requireNonNull(ironGenerator, "Iron Generator must be set");
         Objects.requireNonNull(goldGenerator, "Gold Generator must be set");
         Objects.requireNonNull(engineer, "Engineer must be set");
         Objects.requireNonNull(itemShopKeeper, "Item ShopKeeper must be set");
         Objects.requireNonNull(upgradeShopKeeper, "Upgrade ShopKeeper must be set");
-        Objects.requireNonNull(smallTeleporter, "Small Teleporter must be set");
-        Objects.requireNonNull(bigTeleporter, "Big Teleporter must be set");
+        Objects.requireNonNull(teleporter, "Big Teleporter must be set");
+        Objects.requireNonNull(playerSpawn, "Player Spawn must be set");
         Objects.requireNonNull(crystal, "Crystal must be set");
 
         return new Island(team, ironGenerator, goldGenerator, engineer, itemShopKeeper,
-                upgradeShopKeeper, smallTeleporter, bigTeleporter, crystal);
+                upgradeShopKeeper, teleporter, crystal, playerSpawn);
     }
 }
