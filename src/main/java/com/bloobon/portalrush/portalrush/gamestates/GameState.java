@@ -6,6 +6,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public abstract class GameState {
 
-    private final GameManager gameManager;
+    protected final GameManager gameManager;
     public abstract void onSet();
 }

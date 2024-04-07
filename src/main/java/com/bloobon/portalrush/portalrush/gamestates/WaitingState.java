@@ -10,6 +10,7 @@ public class WaitingState extends GameState {
 
     @Override
     public void onSet() {
-
+        //Players are waiting in the lobby.
+        //TODO retrooper PROHIBIT destruction within the lobby probably
     }
 }

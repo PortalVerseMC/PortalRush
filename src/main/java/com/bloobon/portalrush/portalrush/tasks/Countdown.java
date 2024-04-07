@@ -6,12 +6,15 @@ import com.bloobon.portalrush.portalrush.managers.game.GameManager;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.jetbrains.annotations.Nullable;
+
 @AllArgsConstructor
 public class Countdown extends BukkitRunnable {
 
     @Getter
     private int seconds;
     private final GameManager gameManager;
+    @Nullable private final BukkitRunnable secondaryTask;
 
     @Override
     public void run() {
@@ -19,6 +22,9 @@ public class Countdown extends BukkitRunnable {
             //TODO setup event that handles cancellation of Countdown
             cancel();
             gameManager.getStateManager().changeState(new LiveState(gameManager));
+            if (secondaryTask != null) {
+                secondaryTask.run();
+            }
             return;
         }
         seconds--;
