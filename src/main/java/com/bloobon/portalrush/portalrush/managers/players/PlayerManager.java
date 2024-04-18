@@ -2,6 +2,7 @@ package com.bloobon.portalrush.portalrush.managers.players;
 
 import com.bloobon.portalrush.portalrush.PortalRush;
 import com.bloobon.portalrush.portalrush.gamestates.CountdownState;
+import com.bloobon.portalrush.portalrush.gamestates.DiamondUpgradeState;
 import com.bloobon.portalrush.portalrush.gamestates.WaitingState;
 import com.bloobon.portalrush.portalrush.island.Island;
 import com.bloobon.portalrush.portalrush.managers.game.GameManager;
@@ -22,6 +23,13 @@ public class PlayerManager {
     private final int minPlayersRequired = 3;
     private final int maxPlayers = 6;
     private final int lobbyCountdown = 5;
+
+    public static int FIRST_DIAMOND_UPGRADE = 2;
+    public static int SECOND_DIAMOND_UPGRADE = 2;
+    public static int FIRST_EMERALD_UPGRADE = 2;
+    public static int SECOND_EMERALD_UPGRADE = 2;
+    public static int CRYSTALS_DIE = 2;
+    public static int END_GAME = 2;
 
     public void addActivePlayer(Player player) {
         GameManager gameManager = PortalRush.getInstance().getGameManager();
@@ -62,8 +70,14 @@ public class PlayerManager {
                             }
                         }
 
-                        //After teleporting all players to their islands, we must start another countdown
-                        gameManager.getStateManager().changeState(new CountdownState(gameManager, 20, null));
+                        //After teleporting all players to their islands, we must start another countdown.
+                        /**
+                         * We fire the diamond upgrade countdown.
+                         * The diamond upgrade state will fire itself again, representing the second upgrade.
+                         * After that the emerald upgrade state will automatically be fired twice.
+                         * Furthermore, the crystal die state will be fired, which will then fire the shutdown state.
+                         */
+                        gameManager.getStateManager().changeState(new DiamondUpgradeState(gameManager, FIRST_DIAMOND_UPGRADE));
                     }
                 }));
             }

@@ -24,6 +24,7 @@ public class GameManager {
     private final LobbyManager lobbyManager = new LobbyManager();
 
     public GameManager(){
+        //TODO Why is the shutdown state fired in the beginning?
         stateManager.changeState(new ShutdownState(this));
 
     }
