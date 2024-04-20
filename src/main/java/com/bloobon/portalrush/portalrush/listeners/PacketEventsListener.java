@@ -8,6 +8,7 @@ import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.event.PacketSendEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
 public class PacketEventsListener implements PacketListener {
@@ -24,7 +25,8 @@ public class PacketEventsListener implements PacketListener {
             if (npc == null) return;
             Player player = (Player) event.getPlayer();
 
-            if (npc.getLocation().distance(player.getLocation()) > 4) {
+            int maxDistance = player.getGameMode() == GameMode.CREATIVE ? 4 : 3;
+            if (npc.getLocation().distance(player.getLocation()) > maxDistance) {
                 //NPC is too far away. Cancel this interaction.
                 event.setCancelled(true);
                 return;

@@ -10,6 +10,6 @@ public class ShutdownState extends GameState {
 
     @Override
     public void onSet() {
-
+        //TODO Shutdown logic
     }
 }
