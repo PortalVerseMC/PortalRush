@@ -7,5 +7,4 @@ import org.bukkit.entity.Player;
 public interface NPC {
 
     Location getLocation();
-    Player getEntity();
 }

@@ -9,6 +9,9 @@ import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.event.PacketListenerPriority;
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
 import lombok.Getter;
+import me.tofaa.entitylib.APIConfig;
+import me.tofaa.entitylib.EntityLib;
+import me.tofaa.entitylib.spigot.SpigotEntityLibPlatform;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -23,6 +26,9 @@ public final class PortalRush extends JavaPlugin {
     public void onLoad() {
         PacketEvents.setAPI(SpigotPacketEventsBuilder.build(this));
         PacketEvents.getAPI().load();
+        SpigotEntityLibPlatform entityLibPlatform = new SpigotEntityLibPlatform(this);
+        APIConfig entityLibConfig = new APIConfig(PacketEvents.getAPI());
+        EntityLib.init(entityLibPlatform, entityLibConfig);
     }
 
     @Override

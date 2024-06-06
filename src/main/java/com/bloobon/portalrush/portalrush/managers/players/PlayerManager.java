@@ -66,7 +66,7 @@ public class PlayerManager {
                             Team team = island.team();
                             for (Player p : team.getPlayers()) {
                                 //TODO retrooper Confirm this is the right location
-                                p.teleport(island.bigTeleporter().getLocationTo());
+                                p.teleport(island.teleporter().getLocationTo());
                             }
                         }
 

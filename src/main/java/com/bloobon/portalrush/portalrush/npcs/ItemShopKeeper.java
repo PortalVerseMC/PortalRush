@@ -12,8 +12,8 @@ import org.bukkit.util.Vector;
 
 @Getter
 public class ItemShopKeeper extends NPCVillager {
-    public ItemShopKeeper(Player entity, Location location) {
-        super(entity, location, Component.text("Shop").color(NamedTextColor.GREEN));
+    public ItemShopKeeper(Location location) {
+        super(location, Component.text("Shop").color(NamedTextColor.GREEN));
     }
 
     @Override
@@ -37,7 +37,8 @@ public class ItemShopKeeper extends NPCVillager {
         PacketEvents.getAPI().getPlayerManager().sendPacket(player, head);
         PacketEvents.getAPI().getPlayerManager().sendPacket(player, rot);
 
-        player.sendMessage("TPd the villager towards you...");
+        //TODO Debug
+        player.sendMessage("Rotated the villager towards you...");
 
     }
 }
