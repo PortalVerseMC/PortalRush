@@ -14,10 +14,10 @@ public class IslandGeneratorListener implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         if (event.getMessage().equals("generate npc pls")) {
-            ItemShopKeeper shopKeeper = new ItemShopKeeper(event.getPlayer(), event.getPlayer().getLocation());
+            ItemShopKeeper shopKeeper = new ItemShopKeeper(event.getPlayer().getLocation());
             NPCUtil.registerNPC(shopKeeper.getEntityId(), shopKeeper);
             for (Player player : Bukkit.getOnlinePlayers()) {
-                shopKeeper.spawnFor(player);
+                shopKeeper.addViewer(player);
             }
         }
     }

@@ -12,9 +12,17 @@
     <name>PortalRush</name>
 
     <properties>
-        <java.version>1.8</java.version>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven-snapshots</id>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <build>
         <plugins>
@@ -30,7 +38,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.3.1-SNAPSHOT</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -38,6 +46,10 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <artifactSet>
+                                <!--Prevent packetevents from being shaded-->
+                                <excludes>com.github.retrooper.packetevents:*</excludes>
+                            </artifactSet>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>
                     </execution>
@@ -65,6 +77,14 @@
             <id>codemc-releases</id>
             <url>https://repo.codemc.io/repository/maven-releases/</url>
         </repository>
+        <repository>
+            <id>codemc-snapshots</id>
+            <url>https://repo.codemc.io/repository/maven-snapshots/</url>
+        </repository>
+        <repository>
+            <id>jitpack</id>
+            <url>https://jitpack.io/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -80,11 +100,19 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
+        <!--PacketEvents Dependency-->
         <dependency>
             <groupId>com.github.retrooper.packetevents</groupId>
             <artifactId>spigot</artifactId>
-            <version>2.2.1</version>
+            <version>2.3.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <!--PacketEvents addon for entities & metadata handling-->
+        <dependency>
+            <groupId>com.github.Tofaa2.EntityLib</groupId>
+            <artifactId>spigot</artifactId>
+            <version>master-0da1d44f97-1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

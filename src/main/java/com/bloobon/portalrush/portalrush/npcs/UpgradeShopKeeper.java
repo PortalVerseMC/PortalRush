@@ -9,8 +9,8 @@ import org.bukkit.entity.Player;
 
 @Getter
 public class UpgradeShopKeeper extends NPCVillager {
-    public UpgradeShopKeeper(Player entity, Location location, Component name) {
-        super(entity, location, Component.text("Upgrade Shop").color(NamedTextColor.GREEN));
+    public UpgradeShopKeeper(Location location, Component name) {
+        super(location, Component.text("Upgrade Shop").color(NamedTextColor.GREEN));
     }
 
     @Override

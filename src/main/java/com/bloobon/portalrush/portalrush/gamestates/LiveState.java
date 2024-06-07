@@ -19,7 +19,7 @@ public class LiveState extends GameState {
             Team team = island.team();
             for (Player player : team.getPlayers()) {
                 //TODO retrooper Confirm this is the right location
-                player.teleport(island.bigTeleporter().getLocationTo());
+                player.teleport(island.teleporter().getLocationTo());
             }
         }
 
