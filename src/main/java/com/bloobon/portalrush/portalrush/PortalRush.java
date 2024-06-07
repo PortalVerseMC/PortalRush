@@ -24,8 +24,8 @@ public final class PortalRush extends JavaPlugin {
 
     @Override
     public void onLoad() {
-        PacketEvents.setAPI(SpigotPacketEventsBuilder.build(this));
-        PacketEvents.getAPI().load();
+       // PacketEvents.setAPI(SpigotPacketEventsBuilder.build(this));
+       // PacketEvents.getAPI().load();
         SpigotEntityLibPlatform entityLibPlatform = new SpigotEntityLibPlatform(this);
         APIConfig entityLibConfig = new APIConfig(PacketEvents.getAPI());
         EntityLib.init(entityLibPlatform, entityLibConfig);
@@ -36,19 +36,18 @@ public final class PortalRush extends JavaPlugin {
         instance = this;
 
         PacketEvents.getAPI().getEventManager().registerListener(new PacketEventsListener(), PacketListenerPriority.NORMAL);
-        PacketEvents.getAPI().init();
+        //PacketEvents.getAPI().init();
         // Plugin startup logic
         gameManager = new GameManager();
 
         Bukkit.getPluginManager().registerEvents(new ConnectionListener(this), this);
         Bukkit.getPluginManager().registerEvents(new IslandGeneratorListener(), this);
-        new PortalRushCommand(this);
-
+        //new PortalRushCommand(this);
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        PacketEvents.getAPI().terminate();
+        //PacketEvents.getAPI().terminate();
     }
 }
